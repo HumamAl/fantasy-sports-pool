@@ -2,26 +2,29 @@ import type { Profile, PortfolioProject } from "@/lib/types";
 
 export const profile: Profile = {
   name: "Humam",
-  tagline: "Full-stack developer specializing in Next.js applications",
-  bio: "I build MVPs and production apps that solve real operational problems — CRM systems, fleet management platforms, AI-powered dashboards, and e-commerce tools. My approach is straightforward: understand the business need, build something that works, and ship it fast.",
+  tagline:
+    "I build real-time sports pool platforms — Firebase backend, live game data feeds, and production-ready architecture that holds up when 50 users refresh at tip-off.",
+  bio: "Your Claude prototype proves the concept. I'll turn it into a production app with Firebase Realtime DB, live API connections, bracket picks, live scoring, and pool management — deployed and tested before March 15. I'll also be available March 19-22 as live tournament data flows through the system.",
   approach: [
     {
-      title: "Understand the Problem",
-      description: "Read the full requirements, identify the core pain point",
-    },
-    {
-      title: "Build a Working Demo",
+      title: "Understand the Prototype",
       description:
-        "Show, don't tell — a live demo is worth 1000 words of proposal text",
+        "Start by mapping your Claude-built prototype — which flows are solid, what data model needs to change for Firebase, and which features are must-haves for the beta. One call, clear scope.",
     },
     {
-      title: "Use Realistic Data",
+      title: "Build the Live Foundation",
       description:
-        "Mock data that looks like real client data, not placeholder text",
+        "Firebase Realtime DB setup, authentication, API connections for live game data, pool creation flows — the production backbone that handles real users and real-time score updates.",
     },
     {
-      title: "Ship Fast",
-      description: "MVP first, polish later. Get something deployed quickly",
+      title: "Ship for March 15",
+      description:
+        "Functional beta with bracket picks, pool standings, live scoring, and commissioner controls — deployed and clickable before tip-off. Not a prototype. A working product.",
+    },
+    {
+      title: "Support Game Day",
+      description:
+        "Available March 19-22 for real-time monitoring and quick fixes as live tournament data flows through the system. Fast response during the window that matters most.",
     },
   ],
   skillCategories: [
@@ -37,22 +40,22 @@ export const profile: Profile = {
       ],
     },
     {
-      name: "Backend & APIs",
+      name: "Backend & Real-Time",
       skills: [
-        "Node.js",
+        "Firebase Realtime DB",
         "REST APIs",
-        "Microsoft Graph",
-        "Stripe",
-        "Shopify API",
+        "WebSocket",
+        "Node.js",
+        "Webhook handling",
       ],
     },
     {
-      name: "AI & Automation",
+      name: "DevOps",
       skills: [
-        "Claude API",
-        "OpenAI API",
-        "n8n",
-        "Prompt Engineering",
+        "Vercel",
+        "GitHub Actions",
+        "Performance monitoring",
+        "Error tracking",
       ],
     },
   ],
@@ -60,24 +63,49 @@ export const profile: Profile = {
 
 export const portfolioProjects: PortfolioProject[] = [
   {
-    id: "wmf-agent",
-    title: "WMF Agent Dashboard",
+    id: "sports-vision",
+    title: "Sports Vision MVP",
     description:
-      "AI-powered customer service agent for manufacturing — email classification, RFQ extraction, human-in-the-loop approval",
-    tech: ["Next.js", "Claude API", "n8n", "Microsoft Graph"],
+      "Real-time sports object detection web demo simulating iOS AR/LiDAR scanning — delivered as a browser-based MVP with detection overlays, confidence scores, and accuracy visualization.",
+    tech: ["Next.js", "TypeScript", "Tailwind", "Recharts"],
+    relevance:
+      "Sports domain + rapid MVP delivery from concept to deployed product.",
+    outcome:
+      "AR-style scan UI with detection overlays, confidence scores, and accuracy visualization",
   },
   {
-    id: "lead-crm",
-    title: "Lead Intake CRM",
+    id: "ebay-monitor",
+    title: "eBay Pokemon Monitor",
     description:
-      "Lead intake form, CRM dashboard, lead scoring, pipeline management, and automation rules",
-    tech: ["Next.js", "TypeScript", "Tailwind", "shadcn/ui"],
+      "Real-time eBay listing monitor with webhook-based Discord alerts and price tracking — live API polling, instant alert delivery, and trend visualization.",
+    tech: ["Next.js", "TypeScript", "REST API", "WebSocket"],
+    relevance:
+      "Real-time data monitoring + API integration — same pattern as live game score feeds.",
+    outcome: "Live listing monitor with webhook alerts and price trend tracking",
+    liveUrl: "https://ebay-pokemon-monitor.vercel.app",
   },
   {
-    id: "fleet-saas",
-    title: "Fleet Maintenance SaaS",
+    id: "data-intel",
+    title: "Data Intelligence Platform",
     description:
-      "Asset tracking, work orders, preventive maintenance, inspections, parts inventory, analytics",
-    tech: ["Next.js", "Recharts", "TypeScript", "shadcn/ui"],
+      "Multi-source data analytics dashboard with interactive charts and filterable insights — pulling from multiple live data sources into a unified view.",
+    tech: ["Next.js", "TypeScript", "Recharts", "shadcn/ui"],
+    relevance:
+      "Live data dashboards + real-time analytics — direct parallel to pool standings and bracket scoring.",
+    outcome:
+      "Unified analytics dashboard pulling from multiple data sources with interactive charts and filterable insights",
+    liveUrl: "https://data-intelligence-platform-sandy.vercel.app",
+  },
+  {
+    id: "payment-monitor",
+    title: "PayGuard — Transaction Monitor",
+    description:
+      "Real-time transaction monitoring with flagging engine, multi-account linking, and alert delivery tracking — live data feeds with instant state updates.",
+    tech: ["Next.js", "TypeScript", "Recharts", "shadcn/ui"],
+    relevance:
+      "Real-time monitoring + live data feeds — same Firebase-style state management pattern your pool needs.",
+    outcome:
+      "Compliance monitoring dashboard with real-time transaction flagging and alerts",
+    liveUrl: "https://payment-monitor.vercel.app",
   },
 ];

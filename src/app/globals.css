@@ -79,6 +79,16 @@
     to { height: 0; }
   }
 
+  @keyframes fade-up-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(1.3); }
+  }
+
   /* Frame dimensions — mapped to Tailwind utilities */
   --frame-width: var(--frame-width);
   --frame-height: var(--frame-height);
@@ -105,14 +115,10 @@
   --surface-hover: oklch(0.96 0 0);
   --surface-active: oklch(0.94 0 0);
 
-  /* ── Primary Color ───────────────────────────────────────────
-     !! OVERRIDE REQUIRED — Layout Builder must replace --primary and
-        --primary-h with domain-appropriate oklch values.
-        See the Creative Brief's colorDirection for the target color.
-        QA rejects builds where --primary stays oklch(0.205 0 0). !! */
-  --primary: oklch(0.205 0 0);
+  /* ── Primary Color — Vivid sports green (DraftKings/ESPN Fantasy inspired) ── */
+  --primary: oklch(0.65 0.22 155);
   --primary-foreground: oklch(0.985 0 0);
-  --primary-h: 270; /* Integer hue extracted from --primary */
+  --primary-h: 155;
 
   /* ── Derived Color Tokens ────────────────────────────────── */
   --section-dark: oklch(0.10 0.02 var(--primary-h));
@@ -133,27 +139,26 @@
   /* ── Borders & Inputs ────────────────────────────────────── */
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --ring: oklch(0.65 0.22 155);
 
-  /* ── Chart Colors ────────────────────────────────────────────
-     Layout Builder harmonizes to primary hue. See design-system.md. */
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  /* ── Chart Colors — harmonized to sports green hue ── */
+  --chart-1: oklch(0.65 0.22 155);
+  --chart-2: oklch(0.60 0.15 200);
+  --chart-3: oklch(0.55 0.18 280);
+  --chart-4: oklch(0.75 0.18 85);
+  --chart-5: oklch(0.70 0.20 30);
 
   /* ── Sidebar Colors ──────────────────────────────────────────
      After color override: --sidebar-primary and --sidebar-ring
      should match --primary.                                     */
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary: oklch(0.65 0.22 155);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-ring: oklch(0.65 0.22 155);
 
   /* ── Surface / Card Tokens ───────────────────────────────────
      Driven by [data-theme] aesthetic — not overridden per domain.
@@ -865,6 +870,18 @@
    UTILITY CLASSES
    ============================================================ */
 @layer components {
+
+  /* ── Animation utility classes ──────────────────────────────
+     Staggered card reveal + pulse dot. Must live in @layer components,
+     not @theme (which only accepts custom properties and @keyframes). */
+  .animate-fade-up-in {
+    animation-name: fade-up-in;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+  }
+  .animate-pulse-dot {
+    animation: pulse-dot 1.5s ease-in-out infinite;
+  }
 
   /* ── .linear-card / .aesthetic-card ─────────────────────────
      Primary card surface. Token-driven — adapts to any aesthetic.

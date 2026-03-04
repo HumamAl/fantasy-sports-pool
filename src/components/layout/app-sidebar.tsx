@@ -6,7 +6,11 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { APP_CONFIG } from "@/lib/config";
 import {
-  LayoutDashboard,
+  Trophy,
+  GitBranch,
+  Target,
+  BarChart3,
+  Radio,
   ChevronLeft,
   ChevronRight,
   Lightbulb,
@@ -17,25 +21,21 @@ import {
 
 // ═══════════════════════════════════════════════════════════════════════════
 // AGENT CUSTOMIZATION ZONE
-// Feature Builder and Layout Builder agents edit this section only.
-// Replace the navItems array with 3-5 items for the app's feature pages.
-// Replace the icon in SidebarLogo if needed (import from lucide-react).
 // ═══════════════════════════════════════════════════════════════════════════
 
 const navItems = [
-  { href: "/", label: "Dashboard", icon: LayoutDashboard },
-  // Dashboard Builder agent: add 3-5 feature page nav items here.
-  // Example: { href: "/orders", label: "Orders", icon: ShoppingCart },
+  { href: "/", label: "Pool Hub", icon: Trophy },
+  { href: "/bracket", label: "Bracket", icon: GitBranch },
+  { href: "/my-picks", label: "My Picks", icon: Target },
+  { href: "/standings", label: "Standings", icon: BarChart3 },
+  { href: "/live-scores", label: "Live Scores", icon: Radio },
 ];
 
 function SidebarLogo({ collapsed }: { collapsed: boolean }) {
   return (
     <div className="p-4 border-b border-border/60 flex items-center gap-3">
-      {/* Agent: replace the letter icon with a relevant Lucide icon if appropriate */}
       <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-        <span className="text-primary font-bold text-sm font-mono">
-          {APP_CONFIG.appName.charAt(0)}
-        </span>
+        <Trophy className="w-4 h-4 text-primary" />
       </div>
       {!collapsed && (
         <div className="overflow-hidden">
